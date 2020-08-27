@@ -19,10 +19,12 @@
   <section class="section">
     <div class="container">
       <h1 class="title">Simpsons Quotes</h1>
-      <p>Reload for another quote!</p>
-
-      <div class="content" id="simpsons-quote">
+    <div style="display: flex; justify-content: space-between; width: 500px">
+          <p>Reload for another quote!</p>
+          <button id="myBtn" type="submit">Reload</button>
       </div>
+
+      <div class="content" id="simpsons-quote"></div>
     </div>
 
   </section>
@@ -45,13 +47,20 @@
                         <img src="${simpson[0].image}" alt="${simpson[0].character}" />
                         <h4>${simpson[0].character}</h4>
                         <p><strong>${simpson[0].quote}</strong></p>
+                        <br>
                     `;
                     document.querySelector('#simpsons-quote').innerHTML = simpsonHtml;
                 });
         }
-
         fetchSimpsonJSON();
 
+
+        function reloadPage() {
+            document.getElementById("myBtn").addEventListener("click", function(){
+                window.location.reload();
+            });
+        }
+        reloadPage();
   </script>
 </body>
 
